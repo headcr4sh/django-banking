@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from django.core.validator import RegexValidator
+from django.core.validators import RegexValidator
 from django.db.models import CharField
 
 
 class FT20(models.CharField):
     def __init__(self, **kwargs):
-        super(CharField, self).__init__(max_length=16, null=False blank=True,
+        super(CharField, self).__init__(max_length=16, null=False, blank=True,
                 validators=[RegexValidator(r'^(.{0,16})$')],
                 verbose_name='message reference number')
 
