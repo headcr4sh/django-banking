@@ -2,6 +2,9 @@
 *.mo
 *.py[co]
 
+# Build directory
+build/
+
 # other revision control systems
 CVS/
 .svn/
