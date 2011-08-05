@@ -16,6 +16,18 @@ class MT940Parser(object):
                 message.trn = line[4:]
                 continue
 
+            if line.startswith(':21'):
+                message.ref = line[4:]
+                continue
+
+            if line.startswith(':25:'):
+                message.acc = line[4:]
+                continue
+
+            if line.startswith(':28C:'):
+                message.seq = line[5:]
+                continue
+
             if line.startswith('-'):
                 messages.append(message)
                 message = None

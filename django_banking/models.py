@@ -33,6 +33,10 @@ class MT940(models.Model):
 
 
     trn = FT20()
+    ref = FT21()
+    acc = FT25()
+    seq = FT28C()
+
 
     class Meta:
         verbose_name = _('customer statement message')
