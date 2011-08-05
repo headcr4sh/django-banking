@@ -25,4 +25,7 @@ class MT940ParserTestCase(unittest.TestCase):
         pass
 
     def testParser(self):
-        pass
+
+	parser = parsers.MT940Parser()
+        messages = parser.parse(mt940_test_data.split('\r\n'))
+        

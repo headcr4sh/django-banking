@@ -2,20 +2,22 @@
 
 from django_banking.models import MT940
 
-def parse_mt940(input):
+class MT940Parser(object):
 
-    messages = []
-    message = None
+    def parse(self, input):
 
-    for line in input:
+        messages = []
+        message = None
 
-        if line.startswith(':20:'):
-            message = MT940()
-            message.trn = line[4:]
-            continue
+        for line in input:
 
-        if line.startswith('-'):
-            messages += message
-            message = None
-            continue
+            if line.startswith(':20:'):
+                message = MT940()
+                message.trn = line[4:]
+                continue
+
+            if line.startswith('-'):
+                messages.append(message)
+                message = None
+                continue
 
