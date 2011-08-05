@@ -13,7 +13,7 @@ setup(
     author_email='headcr4sh@gmail.com',
     url='https://github.com/headcr4sh/dango-banking',
     download_url='https://github.com/headcr4sh/django-banking/downloads/',
-    packages = ['django_banking',],
+    packages = ['django_banking', 'django_banking.models'],
     license='BSD',
     classifiers=[
         'Development Status :: 4 - Beta',
