@@ -8,8 +8,11 @@ from django_banking.fields import FT21
 from django_banking.fields import FT25
 from django_banking.fields import FT28C
 
+from django_banking.models import AbstractFT
+from django_banking.models import AbstractMT
 
-class MT940(models.Model):
+
+class MT940(AbstractMT):
 
     """MT 940 Customer Statement Message
 
@@ -41,3 +44,8 @@ class MT940(models.Model):
     class Meta:
         verbose_name = _('customer statement message')
         verbose_name_plural = _('customer statement messages')
+
+
+class MT940_FT25(AbstractFT):
+    pass
+    

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django_banking.models import MT940
+from django_banking.models.mt940 import MT940
 
 class MT940Parser(object):
 
@@ -28,8 +28,23 @@ class MT940Parser(object):
                 message.seq = line[5:]
                 continue
 
+            if line.startswith(':60F:'):
+                message.bal_open = line[5:]
+                continue
+
+# TODO :61: and :86:
+
+            if line.startswith('62F:'):
+                message.bal_close = line[5:]
+                continue
+
+            if line.startswith(':64:'):
+                message.bal_close_avail = line[4:]
+                continue
+
             if line.startswith('-'):
-                messages.append(message)
-                message = None
+                if message:
+                    messages.append(message)
+                    message = None
                 continue
 

@@ -11,15 +11,12 @@ class FT20(CharField):
                 verbose_name='message reference number')
 
 
-
-
 class FT21(CharField):
 
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=16, null=True, blank=True,
                 validators=[RegexValidator(r'^(.{0,16})$')],
                 verbose_name='related reference number')
-
 
 
 class FT25(CharField):
@@ -32,7 +29,6 @@ class FT25(CharField):
                 verbose_name='account designation')
 
 
-
 class FT28C(CharField):
 
     def __init__(self, **kwargs):
@@ -40,3 +36,16 @@ class FT28C(CharField):
                 validators=[RegexValidator(r'(\d{5})/(\d{3})')],
                 verbose_name='')
 
+
+class FT60F(CharField):
+    def __init__(self, **kwargs):
+        super(CharField, self).__init__(max_length=25, null=False, blank=True,
+                validators=[RegexValidator(r'([CD])(\d{6})(.{3})(.{0,15})')],
+                verbose_name='opening balance')
+
+
+class FT60M(CharField):
+    def __init__(self, **kwargs):
+        super(CharField, self).__init__(max_length=25, null=False, blank=True,
+                validators=[RegexValidator(r'([CD])(\d{6})(.{3})(.{0,15})')],
+                verbose_name='interim balance')
