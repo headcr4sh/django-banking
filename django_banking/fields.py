@@ -21,7 +21,7 @@ class FT21(CharField):
 
 class FT25(CharField):
 
-    # TODO We need a 2nd validator for BIC/IBAN or Kto/BLZ inpput validation
+    # TODO We need a 2nd validator for BIC/IBAN or Kto/BLZ input validation
 
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=35, null=False, blank=True,
