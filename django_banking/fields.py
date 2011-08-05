@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 from django.db.models import CharField
 
 
-class FT20(models.CharField):
+class FT20(CharField):
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=16, null=False, blank=True,
                 validators=[RegexValidator(r'^(.{0,16})$')],
@@ -13,7 +13,7 @@ class FT20(models.CharField):
 
 
 
-class FT21(models.CharField):
+class FT21(CharField):
 
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=16, null=True, blank=True,
@@ -22,7 +22,7 @@ class FT21(models.CharField):
 
 
 
-class FT25(models.CharField):
+class FT25(CharField):
 
     # TODO We need a 2nd validator for BIC/IBAN or Kto/BLZ inpput validation
 
@@ -33,7 +33,7 @@ class FT25(models.CharField):
 
 
 
-class FT28C(models.CharField):
+class FT28C(CharField):
 
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=35, null=False, blank=True,

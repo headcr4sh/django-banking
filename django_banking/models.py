@@ -9,7 +9,7 @@ from django_banking.fields import FT25
 from django_banking.fields import FT28C
 
 
-class MT940(model.Model):
+class MT940(models.Model):
 
     """MT 940 Customer Statement Message
 
@@ -36,4 +36,4 @@ class MT940(model.Model):
 
     class Meta:
         verbose_name = _('customer statement message')
-        verbose_name_plurals = _('customer statement messages')
+        verbose_name_plural = _('customer statement messages')
