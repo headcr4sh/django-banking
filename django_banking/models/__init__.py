@@ -3,7 +3,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-
 class AbstractMT(models.Model):
     
     raw_data = models.TextField(blank=True, null=False,
@@ -28,12 +27,12 @@ class AbstractFT(models.Model):
 
 class FT25(AbstractFT):
 
-    bic = models.CharField(max_length=11)
-    iban = models.CharField(max_length=23)
-
-    cur = models.CharField(max_length=3)
+    bic = models.CharField(max_length=11, verbose_name=_('BIC'))
+    iban = models.CharField(max_length=23, verbose_name=_('IBAN'))
+    cur = models.CharField(max_length=3, verbose_name=_('currency'))
 
     class Meta:
+	abstract = True
         verbose_name = _('account designation')
         verbose_name = _('account designations')
 
@@ -47,5 +46,6 @@ class FT28(AbstractFT):
             verbose_name=_('page number'))
 
     class Meta:
+	abstract = True
         verbose_name = _('account statement number')
         verbose_name = _('account statement numbers')
