@@ -8,7 +8,7 @@ class FT20(CharField):
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=16, null=False, blank=True,
                 validators=[RegexValidator(r'^(.{0,16})$')],
-                verbose_name='message reference number')
+                verbose_name='transaction reference number')
 
 
 class FT21(CharField):
@@ -16,7 +16,7 @@ class FT21(CharField):
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=16, null=True, blank=True,
                 validators=[RegexValidator(r'^(.{0,16})$')],
-                verbose_name='related reference number')
+                verbose_name='related reference')
 
 
 class FT25(CharField):
@@ -26,7 +26,7 @@ class FT25(CharField):
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=35, null=False, blank=True,
                 validators=[RegexValidator(r'^(.{0,35})$')],
-                verbose_name='account designation')
+                verbose_name='account identification')
 
 
 class FT28C(CharField):
@@ -34,7 +34,7 @@ class FT28C(CharField):
     def __init__(self, **kwargs):
         super(CharField, self).__init__(max_length=35, null=False, blank=True,
                 validators=[RegexValidator(r'(\d{5})/(\d{3})')],
-                verbose_name='')
+                verbose_name='statement number / sequence number')
 
 
 class FT60F(CharField):
